@@ -51,7 +51,7 @@ public class DPInCallPage extends BasePage {
         Assert.assertTrue(isCallGetsRecorded,"Record btn is Active and Call is Getting Recorded");
         WaitForSecondsUtils.waitForTaskToComplete(3);
         click(btnRecordActive);
-        LOGGER.info("Call Recording is stopped");
+        LOGGER.info("Call Recording is stopped  ");
         return this;
     }
 
