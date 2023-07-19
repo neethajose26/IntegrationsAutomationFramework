@@ -1,0 +1,25 @@
+
+w
+java:S2629-"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(æòƒùÿÿÿÿ
+M
+java:S26299"7Use the built-in formatting to construct this argument.(ÌÚå¥
+M
+java:S2629="7Use the built-in formatting to construct this argument.(ÌÚå¥
+N	java:S106 "9Replace this use of System.out or System.err by a logger.(ĞâÔÖ
+N	java:S106#"9Replace this use of System.out or System.err by a logger.(ŞÒ²
+\
+java:S3457-"AFormat specifiers should be used instead of string concatenation.(æòƒùÿÿÿÿ
+Q	java:S1251"<This block of commented-out lines of code should be removed.(×Õ©”
+W
+java:S34579"AFormat specifiers should be used instead of string concatenation.(ÌÚå¥
+W
+java:S3457="AFormat specifiers should be used instead of string concatenation.(ÌÚå¥
+\
+java:S1128
+"ARemove this unused import 'com.integrations.utils.PropertyUtils'.(ºŸŠÕùÿÿÿÿ
+]
+java:S1128"GRemove this unused import 'org.openqa.selenium.remote.RemoteWebDriver'.(ú£Ú—
+Q
+java:S1128";Remove this unused import 'java.net.MalformedURLException'.(ªËŞˆ
+D
+java:S1128")Remove this unused import 'java.net.URL'.(ñìÁ„üÿÿÿÿ

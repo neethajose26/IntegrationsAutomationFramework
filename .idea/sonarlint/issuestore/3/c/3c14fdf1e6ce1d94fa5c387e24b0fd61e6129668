@@ -1,0 +1,16 @@
+
+x
+java:S1104"[Make tabIntegrations a static final constant or non-public and provide accessors if needed.(šÁêá8½ÓŞñ“1
+p
+java:S1104"SMake imgZoho a static final constant or non-public and provide accessors if needed.(Ë÷ş—8ÕùŞñ“1
+R
+java:S1444"5Make this "public static tabIntegrations" field final(šÁêá8½ÓŞñ“1
+J
+java:S1444"-Make this "public static imgZoho" field final(Ë÷ş—8ÕùŞñ“1
+B
+java:S2387","wait" is the name of a field in "BasePage".(Ïá¤™
+_
+java:S1128
+"BRemove this unused import 'com.integrations.driver.DriverManager'.(æ’é¶8›»ßñ“1
+n
+java:S1128"LRemove this unused import 'com.integrations.driver.DriverManager.getDriver'.(ÍôôÅûÿÿÿÿ8›»ßñ“1

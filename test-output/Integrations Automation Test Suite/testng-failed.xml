@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="tests" name="Failed suite [Integrations Automation Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="tests" name="Zoho Regression(failed)">
+    <parameter name="role" value="org"/>
+    <classes>
+      <class name="com.integrations.tests.zoho.ZohoTests">
+        <methods>
+          <include name="setup"/>
+          <include name="ZohoLogCall" invocation-numbers="0"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.integrations.tests.zoho.ZohoTests -->
+    </classes>
+  </test> <!-- Zoho Regression(failed) -->
+  <test thread-count="2" parallel="tests" name="MSDynamics Regression(failed)">
+    <parameter name="role" value="org"/>
+    <classes>
+      <class name="com.integrations.tests.msDynamics.MSDynamicsTests">
+        <methods>
+          <include name="setUp"/>
+          <include name="setup"/>
+          <include name="MSDynamicsLogCall" invocation-numbers="0"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.integrations.tests.msDynamics.MSDynamicsTests -->
+    </classes>
+  </test> <!-- MSDynamics Regression(failed) -->
+</suite> <!-- Failed suite [Integrations Automation Test Suite] -->

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Integrations Automation Test Suite" thread-count="2" parallel="tests">
+
+    <test name="Zoho Regression">
+        <parameter name="role" value="org"/>
+        <classes>
+            <class name="com.integrations.tests.zoho.ZohoTests"/>
+        </classes>
+    </test>
+    <test name="MSDynamics Regression">
+        <parameter name="role" value="org"/>
+        <classes>
+            <class name="com.integrations.tests.msDynamics.MSDynamicsTests"/>
+        </classes>
+    </test>
+<!--    <test name="Zoho - PartTests">-->
+<!--        <parameter name="role" value="part"/>-->
+<!--        <classes>-->
+<!--            <class name="com.integrations.tests.zoho.ZohoTests">-->
+<!--                <methods>-->
+<!--                    <parameter name="user" value="testuser4@uberspeek.com"></parameter>-->
+<!--                    <parameter name="password" value="Doq04889!2345"></parameter>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+
+</suite>

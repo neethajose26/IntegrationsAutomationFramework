@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="tests" name="Failed suite [Integrations - Zoho]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="tests" name="OrgTests(failed)">
+    <parameter name="role" value="org"/>
+    <classes>
+      <class name="com.integrations.tests.zoho.ZohoTests">
+        <parameter name="user" value="autouser202301@uberdialing.com"/>
+        <parameter name="password" value="a2u0t2o3qa@"/>
+        <methods>
+          <include name="ZohoTest1" invocation-numbers="0"/>
+          <include name="setup"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.integrations.tests.zoho.ZohoTests -->
+    </classes>
+  </test> <!-- OrgTests(failed) -->
+</suite> <!-- Failed suite [Integrations - Zoho] -->
