@@ -99,4 +99,27 @@ public final class WindowHelper {
         }
         return true;
     }
+
+    public static String switchBackToMainWindowFromChildWindow(WebDriver driver, String title){
+        // To handle parent window
+        String MainWindow = driver.getWindowHandle();
+        System.out.println("Main window handle is " + MainWindow);
+        // To handle child window
+        Set<String> s1 = driver.getWindowHandles();
+        System.out.println("Child window handle is" + s1);
+        Iterator<String> i1 = s1.iterator();
+        while (i1.hasNext()) {
+            String ChildWindow = i1.next();
+            if (!MainWindow.equalsIgnoreCase(ChildWindow)) {
+                driver.switchTo().window(ChildWindow);
+                String pageTitle = driver.getTitle();
+                System.out.println("The web page title of child window is:" + pageTitle);
+                if (pageTitle.contains(title)) {
+                    LOGGER.info("Switched to the Specific child window with title: "+pageTitle);
+                    break;
+                }
+            }
+        }
+        return MainWindow;
+    }
 }

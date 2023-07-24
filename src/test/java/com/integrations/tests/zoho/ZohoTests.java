@@ -6,15 +6,22 @@
 
 package com.integrations.tests.zoho;
 import com.integrations.base.TestBase;
+import com.integrations.helper.AssertionHelper;
 import com.integrations.helper.WindowHelper;
 import com.integrations.pages.dialpad.*;
 import com.integrations.pages.zoho.ZohoFunctionalities;
 import com.integrations.pages.zoho.ZohoLoginPage;
 import com.integrations.pages.zoho.ZohoRightBar;
+import com.integrations.utils.DateAndTimeUtils;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
+import static com.integrations.constants.FrameworkConstants.*;
+import static com.integrations.helper.AssertionHelper.verifyContains;
+import static com.integrations.helper.AssertionHelper.verifyTrue;
 import static com.integrations.utils.PropertyUtils.get;
 
 public final class ZohoTests extends TestBase {
@@ -77,9 +84,19 @@ public final class ZohoTests extends TestBase {
             dpHarnessPageOrg.clickOnPartUser(partName);
             zohoRightBarOrg = zohoRightBarOrg.connectToZoho();
             dpMakeACallPageOrg = dpMakeACallPageOrg.makeACall(partNumber);
-            dpInCallPageOrg = dpInCallPageOrg.waitForTimer().endACall();
+            dpInCallPageOrg = dpInCallPageOrg.waitForTimer().recordACall().endACall();
             zohoRightBarOrg.logCallInZoho().clickOnViewAccount();
             zohoFunctionalitiesOrg = zohoFunctionalitiesOrg.clickOnClosedActivities();
+            List<String>recentCallLogDetails = zohoFunctionalitiesOrg.verifyLatestCallLogDetails();
+
+            verifyTrue(recentCallLogDetails.get(0).contains(get("zoho.subject")+ DateAndTimeUtils.getDayMonthTodaysDate()));
+            verifyTrue(recentCallLogDetails.get(1).contains("Dialpad Integration"));
+            verifyTrue(recentCallLogDetails.get(2).contains(TRANSCRIPT_URL_FORMAT),"Transcript Url is present and the format is valid");
+            verifyTrue(recentCallLogDetails.get(3).contains(CALL_RECORDING_TITLE),"Call Recording Title is present in the Call Logs");
+            verifyTrue(recentCallLogDetails.get(4).contains(CALL_RECORDING_URL_FORMAT),"Call Recording Url is present and the format is valid");
+            verifyTrue(recentCallLogDetails.get(5).contains(get("zoho.desc")+DateAndTimeUtils.getDayMonthTodaysDate()));
+
+
         }
 //        else if (role.equalsIgnoreCase("part")) {
 //            new DPIncomingCallToastPage(partDriver).waitForCallNotification().clickOnAnswerBtn().waitForTimer();

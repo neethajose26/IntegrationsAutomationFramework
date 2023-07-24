@@ -26,7 +26,7 @@ public final class ExplicitWaitHelper {
         return wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
-    public static WebElement elementToBeClickable(WebDriverWait wait, WebElement element) {
+    public static WebElement elementToBeClickable(WebDriverWait wait, By element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 

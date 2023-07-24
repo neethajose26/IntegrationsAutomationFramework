@@ -5,6 +5,7 @@
  */
 
 package com.integrations.pages.zoho;
+import com.integrations.constants.FrameworkConstants;
 import com.integrations.helper.ExplicitWaitHelper;
 import com.integrations.helper.FrameHelper;
 import com.integrations.helper.SeleniumActions;
@@ -34,6 +35,9 @@ public class ZohoRightBar extends BasePage {
     public final By btnLogCall = By.xpath("//button[contains(text(),'Log Call')]");
     public final By btnViewAccount = By.xpath("//h1[contains(text(),'Zoho')]//following-sibling::button//span//*[name()='svg']");
     public final By toastLoggingSuccess = By.cssSelector(".d-notice__content>span");
+    public final By btnZohoAccount = By.xpath("//span[@class='select_text' and contains(text(),'Dialpad Inc')]");
+    public final By btnSubmitZohoAccount = By.xpath("//div[@class='but_action']//button[contains(text(),'Submit')]");
+    public final By btnAcceptZohoAccount = By.xpath("//button[contains(text(),'Accept')]");
 
     public ZohoRightBar(WebDriver driver) {
         super(driver);
@@ -49,6 +53,19 @@ public class ZohoRightBar extends BasePage {
         boolean isFindAFrameAndSwitchToIt = FrameHelper.findAFrameAndSwitchToIt(driver,linkConnectToZoho);
         if(isFindAFrameAndSwitchToIt){
             click(linkConnectToZoho);
+            WaitForSecondsUtils.waitForTaskToCompleteInSeconds(10);
+            if(WindowHelper.totalWindowsPresent(driver)==2){
+                String parentWindow = WindowHelper.switchBackToMainWindowFromChildWindow(driver, FrameworkConstants.ZOHO_ACCOUNTS_TITLE);
+                click(btnZohoAccount);
+                LOGGER.info("Clicked on the CRM account as Dialpad Inc");
+                click(btnSubmitZohoAccount);
+                LOGGER.info("Clicked on Submit button and chosen the services for Dialpad");
+                click(btnAcceptZohoAccount);
+                WaitForSecondsUtils.waitForTaskToCompleteInSeconds(2);
+                LOGGER.info("Clicked on Accept button");
+                driver.switchTo().window(parentWindow);
+                FrameHelper.findAFrameAndSwitchToIt(driver,containerContactCard);
+            }
             ExplicitWaitHelper.visibilityOfElement(wait,containerContactCard);
         }
         FrameHelper.switchToDefaultContent(driver);

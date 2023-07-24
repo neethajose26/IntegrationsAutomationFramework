@@ -18,18 +18,6 @@ public class FrameworkUtils {
     ExplicitWaitHelper explicitWaitHelper;
     private WebDriverWait wait;
 
-    public void click(WebElement element) {
-//        waitForTaskToComplete();
-        try {
-            explicitWaitHelper.elementToBeClickable(wait, element).click();
-        }
-        catch (WebDriverException e) {
-//            LOGGER.error(NOT_ABLE_TO_PERFORM_CLICK_BECAUSE + e.getMessage());
-//            ExtentLogger.fail(e.fillInStackTrace());
-
-        }
-//        waitForTaskToComplete();
-    }
     public void sendKeys(WebElement element, String value) {
 //        waitForTaskToComplete();
         try {

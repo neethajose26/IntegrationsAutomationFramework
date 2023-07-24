@@ -82,13 +82,13 @@ public class BasePage {
      */
     protected void click(By by) {
         try {
-            presenceOfElement(wait, by).click();
+            elementToBeClickable(wait, by).click();
         } catch (ElementNotInteractableException | StaleElementReferenceException exception) {
             LOGGER.info("Warning :: element was not clicked "); //+ exception.getMessage());
             for (long i = 0; i < Integer.parseInt(get("custom_timeout")); i++) {
                 try {
                     Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
-                    presenceOfElement(waitForSecond, by).click();
+                    elementToBeClickable(waitForSecond, by).click();
                     break;
                 } catch (ElementNotInteractableException | StaleElementReferenceException |
                          TimeoutException exception1) {
@@ -174,6 +174,14 @@ public class BasePage {
         } catch (org.openqa.selenium.TimeoutException te) {
             return driver.findElement(by);
         }
+    }
+
+    public WebElement getElement(WebElement element, By by) {
+        try {
+            return new WebDriverWait(this.driver, Duration.ofSeconds(Long.parseLong(get("medium_timeout")))).until(ExpectedConditions.visibilityOf(element)).findElement(by);
+        } catch (Exception e) {
+        }
+        return element.findElement(by);
     }
 
     /**

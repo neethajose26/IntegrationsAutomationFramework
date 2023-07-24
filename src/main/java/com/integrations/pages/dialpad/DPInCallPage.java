@@ -46,12 +46,13 @@ public class DPInCallPage extends BasePage {
         ExplicitWaitHelper.visibilityOfElement(wait,btnRecord);
         click(btnRecord);
         LOGGER.info("Clicked on Call Record button");
-        WaitForSecondsUtils.waitForTaskToComplete(7);
+        WaitForSecondsUtils.waitForTaskToComplete(15);
         boolean isCallGetsRecorded = isDisplayed(getElement(btnRecordActive));
         Assert.assertTrue(isCallGetsRecorded,"Record btn is Active and Call is Getting Recorded");
         WaitForSecondsUtils.waitForTaskToComplete(3);
-        click(btnRecordActive);
-        LOGGER.info("Call Recording is stopped  ");
+//        click(btnRecordActive);
+//        WaitForSecondsUtils.waitForTaskToComplete(3);
+//        LOGGER.info("Call Recording is stopped  ");
         return this;
     }
 

@@ -20,9 +20,13 @@ public final class FrameworkConstants {
     public static final String NOT_ABLE_TO_PERFORM_CLICK_BECAUSE = "Not able to perform click because ====>>";
     public static final String NOT_ABLE_TO_PERFORM_SEND_KEY_BECAUSE = "Not able to perform send key because====>>";
     public static final String ZOHO_TITLE = "Auto Account (Account) - Zoho CRM";
+    public static final String ZOHO_ACCOUNTS_TITLE = "Zoho Accounts";
     public static final String MSD_TITLE = "Contact: Contact:";
     public static final String MSLOGIN_TITLE = "Sign in to your account";
     public static final String DIALPAD_TITLE = "Dialpad";
+    public static final String TRANSCRIPT_URL_FORMAT = "Transcript URL: https://dialpadbeta.com/callhistory/callreview";
+    public static final String CALL_RECORDING_TITLE = "Call Recording link/s:";
+    public static final String CALL_RECORDING_URL_FORMAT = "https://dialpadbeta.com/r";
     public static final String CALL_LOG_SUCCESS_TOAST = "Note logging successful";
     public static String getApplicationPropertiesFilePath() {
         return APPLICATION_PROPERTIES_FILE_PATH;
